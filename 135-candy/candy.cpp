@@ -21,3 +21,31 @@ public:
         return total;
     }
 };
+
+// class Solution{
+// public:
+//     int candy(vector<int>& rankings){
+//         int n = rankings.size();
+//         if (n==0) return 0;
+//         vector<int> candies(n,1) ;
+//         for(int i=0;i< n-1; i++){
+//             if(rankings[i] == rankings[i+1]){
+//                 continue;
+//             }
+//             if(rankings[i] > rankings[i+1]){
+//                 candies[i] = candies[i+1] + 1;
+//                 cout<< candies[i] ;
+//             }else{
+//                 candies[i+1] = candies[i] + 1;
+//             }
+//         }
+
+//         int total =0;
+
+//         for(int c : candies){
+//             total += c;
+//         }
+
+//         return total;
+//     }
+// };

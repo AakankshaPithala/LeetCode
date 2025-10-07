@@ -8,6 +8,7 @@ public:
                 count++;
             }
         }
+        //manual check
         if(nums[n-1]>nums[0]) count++;
         if(count > 1) return false;
         else return true;

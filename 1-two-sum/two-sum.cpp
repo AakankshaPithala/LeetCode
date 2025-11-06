@@ -11,32 +11,28 @@ public:
         //     mpp[nums[i]] = i;
         // }
         // return {};
-         int n = nums.size();
-        vector<pair<int, int>> arr; // {value, original_index}
-        for (int i = 0; i < n; i++) {
-            arr.push_back({nums[i], i});
+        int n = nums.size();
+        vector<pair<int,int>> arr;
+        for(int i=0;i<n;i++){
+            arr.push_back({nums[i],i});
         }
+        sort(arr.begin(),arr.end());
 
-        // Sort by the values (first element of pair)
-        sort(arr.begin(), arr.end());
+        int left =0;
+        int right = n-1;
 
-        int left = 0;
-        int right = n - 1;
-
-        while (left < right) {
-            int sum = arr[left].first + arr[right].first;
-
-            if (sum == target) {
-                return {arr[left].second, arr[right].second}; // ✅ original indices
-            } 
-            else if (sum > target) {
-                right--;
-            } 
-            else {
-                left++;
+        while(left<right){
+            int sum = arr[left].first+arr[right].first;
+            if(sum==target){
+                return {arr[left].second,arr[right].second};
             }
+            else if(sum >target){
+                right--;
+            }
+            else{
+                left++;
+            } 
         }
-
-        return {-1, -1};
+        return {-1,-1};
     }
 };

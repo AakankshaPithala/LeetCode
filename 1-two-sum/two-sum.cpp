@@ -11,6 +11,7 @@ public:
         //     mpp[nums[i]] = i;
         // }
         // return {};
+        
         int n = nums.size();
         vector<pair<int,int>> arr;
         for(int i=0;i<n;i++){

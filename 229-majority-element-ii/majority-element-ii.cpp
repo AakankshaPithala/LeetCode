@@ -1,19 +1,17 @@
 class Solution {
 public:
     vector<int> majorityElement(vector<int>& nums) {
+        int n = nums.size();
+        int min = (n/3)+1;
         vector<int> ls;
-        int n=nums.size();
+        map<int,int> mpp;
         for(int i=0;i<n;i++){
-            if(ls.size()==0 || ls[0]!=nums[i]){
-                int cnt=0;
-                for(int j=0;j<n;j++){
-                    if(nums[j]==nums[i]){
-                        cnt++;
-                    }
-                }
-                if(cnt>n/3) ls.push_back(nums[i]);
+            mpp[nums[i]]++;
+        }
+        for(auto it:mpp){
+            if(it.second > n/3){
+                ls.push_back(it.first);
             }
-            if(ls.size()== 2) break;
         }
         return ls;
     }
